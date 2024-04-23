@@ -26,7 +26,6 @@ public class ClientController {
    }
 
    @RequestMapping("/details-produit/{id}")
-
    public String ficheProduit(@PathVariable int id,  Model model){
      ProductBean produit = produitsProxy.recupererUnProduit(id);
      model.addAttribute("produit", produit);
