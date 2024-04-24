@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.clientui.clientui.beans.CommandeBean;
+import com.clientui.clientui.beans.PaiementBean;
 import com.clientui.clientui.beans.ProductBean;
 import com.clientui.clientui.proxies.MicroserviceCommandeProxy;
+import com.clientui.clientui.proxies.MicroservicePaiementProxy;
 import com.clientui.clientui.proxies.MicroserviceProduitsProxy;
 
 @Controller
