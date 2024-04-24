@@ -82,7 +82,7 @@ public class ClientController {
         CommandeBean commandeAjoutee = CommandesProxy.ajouterCommande(commande);
 
         //on passe à la vue l'objet commande et le montant de celle-ci afin d'avoir les informations nécessaire pour le paiement
-        model.addAttribute("commande", commandeAjoutee);
+        model.addAttribute("commande", commande);
         model.addAttribute("montant", montant);
 
         return "Paiement";
@@ -112,7 +112,7 @@ public class ClientController {
 
         model.addAttribute("paiementOk", paiementAccepte); // on envoi un Boolean paiementOk à la vue
 
-        return "confirmation";
+        return "Confirmation";
     }
 
     //Génére une serie de 16 chiffres au hasard pour simuler vaguement une CB
