@@ -3,8 +3,10 @@ package com.mproduits.configuration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/*@ConfigurationProperties("mes-configs")  :
+ *  précise que cette classe de configuration va récupérer des propriétés dans application.properties dont le préfixe est  mes-configs.*/
 @Component
-@ConfigurationProperties
+@ConfigurationProperties("mes-configs")
 public class ApplicationPropertiesConfig {
 
 	  private int limitDeProduits;

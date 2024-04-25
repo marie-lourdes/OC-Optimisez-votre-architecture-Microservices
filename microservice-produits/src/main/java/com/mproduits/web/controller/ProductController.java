@@ -1,21 +1,26 @@
 package com.mproduits.web.controller;
 
-import com.mproduits.dao.ProductDao;
-import com.mproduits.model.Product;
-import com.mproduits.web.exceptions.ProductBadRequestException;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
+import com.mproduits.configuration.ApplicationPropertiesConfig;
+import com.mproduits.dao.ProductDao;
+import com.mproduits.model.Product;
+import com.mproduits.web.exceptions.ProductBadRequestException;
 
 @RestController
 public class ProductController {
 
     @Autowired
     ProductDao productDao;
+    
+    @Autowired
+    ApplicationPropertiesConfig appProperties; // properties personnalisé :mes-configs.limitDeProduits= 4
 
     // Affiche la liste de tous les produits disponibles
     @GetMapping(value = "/Produits")
@@ -24,8 +29,10 @@ public class ProductController {
         List<Product> products = productDao.findAll();
 
         if(products.isEmpty()) throw new ProductBadRequestException("Aucun produit n'est disponible à la vente");
-
-        return products;
+        
+        List<Product> listeLimitee = products.subList(0, appProperties.getLimitDeProduits());
+        
+        return  listeLimitee ;
 
     }
 
