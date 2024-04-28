@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
  *  précise que cette classe de configuration va récupérer des propriétés dans application.properties dont le préfixe est  mes-configs.*/
 @Component
 @ConfigurationProperties("mes-configs")
+@RefreshScope
 public class ApplicationPropertiesConfig {
 
 	  private int limitDeProduits;
