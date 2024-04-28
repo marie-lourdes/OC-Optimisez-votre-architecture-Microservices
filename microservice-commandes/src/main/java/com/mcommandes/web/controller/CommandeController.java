@@ -27,7 +27,12 @@ public class CommandeController {
 
         return new ResponseEntity<Commande>(commande, HttpStatus.CREATED);
     }
-
+    
+    @GetMapping(value = "/commandes")
+    public String recupererHomePage() {
+    	return "acceuil commande";
+    }
+    
     @GetMapping(value = "/commandes/{id}")
     public Optional<Commande> recupererUneCommande(@PathVariable int id){
 

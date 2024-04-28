@@ -2,6 +2,7 @@ package com.clientui.clientui.proxies;
 
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -12,4 +13,7 @@ public interface MicroserviceCommandeProxy {
 
     @PostMapping(value = "/commandes")
     CommandeBean ajouterCommande(@RequestBody CommandeBean commande);
+    
+    @GetMapping(value = "/commandes")
+    String recupererHomePage();
 }
