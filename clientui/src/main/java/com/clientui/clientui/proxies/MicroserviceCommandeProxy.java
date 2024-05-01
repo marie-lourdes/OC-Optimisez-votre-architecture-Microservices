@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.clientui.clientui.beans.CommandeBean;
 
-@FeignClient(name = "microservice-commandes", url = "localhost:9002")
+@FeignClient(name = "zuul-server")
 public interface MicroserviceCommandeProxy {
 
-    @PostMapping(value = "/commandes")
+    @PostMapping(value = "/microservice-commandes/commandes")
     CommandeBean ajouterCommande(@RequestBody CommandeBean commande);
     
-    @GetMapping(value = "/commandes")
+    @GetMapping(value = "/microservice-commandes/commandes")
     String recupererHomePage();
 }

@@ -17,13 +17,15 @@ import com.clientui.clientui.beans.ProductBean;
  * -connexion avec le font 8080 n affiche pas le template 
 mais sera replacé par api gateway et zuul server qui fera la requete http vers eureka server nativement relié ensemble zuul et eureka,
 et chargera les Url des microservices*/
-@FeignClient(name = "microservice-produits"/*, url = "localhost:9001"*/)
+//@FeignClient(name = "microservice-produits"/*, url = "localhost:9001"*/)
+
+@FeignClient(name = "zuul-server")
 @RibbonClient(name = "microservice-produits")
 public interface MicroserviceProduitsProxy {
-   @GetMapping(value = "/Produits")
+   @GetMapping(value = "/microservice-produits/ /Produits")
    List<ProductBean> listeDesProduits();
 
-   @GetMapping( value = "/Produits/{id}")
+   @GetMapping( value = "/microservice-produits/ /Produits/{id}")
    ProductBean recupererUnProduit(@PathVariable("id") int id);
 
 }
