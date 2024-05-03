@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.clientui.clientui.beans.ProductBean;
+import com.clientui.clientui.configuration.FeignProduitsConfig;
+
 
 /*-url = "localhost:9001" desactivé car  Ribbon est lié a eureka , 
  * la liste des URL configuré : microservice-produits.ribbon.listOfServers=localhost:9001,localhost:9011 (microservice-clientui.propertie du config server repo distant)
@@ -19,7 +21,7 @@ et chargera les Url des microservices*/
 //@FeignClient(name = "microservice-produits"/*, url = "localhost:9001"*/)
 
 
-@FeignClient(name = "zuul-server", qualifiers="MicroserviceProduitsProxy")
+@FeignClient(/*contextId="feignProduits",*/name = "zuul-server"/*, configuration=FeignProduitsConfig.class*/)
 @RibbonClient(name = "microservice-produits")
 public interface MicroserviceProduitsProxy {
    @GetMapping( value = "/microservice-produits/Produits")

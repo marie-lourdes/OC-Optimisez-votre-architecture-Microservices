@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.clientui.clientui.beans.CommandeBean;
 import com.clientui.clientui.beans.PaiementBean;
 import com.clientui.clientui.beans.ProductBean;
+import com.clientui.clientui.configuration.FeignProduitsConfig;
 import com.clientui.clientui.proxies.MicroserviceCommandeProxy;
 import com.clientui.clientui.proxies.MicroservicePaiementProxy;
 import com.clientui.clientui.proxies.MicroserviceProduitsProxy;
 
+//@Import(FeignProduitsConfig.class)
 @Controller
 public class ClientController {
 

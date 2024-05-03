@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import feign.Contract;
 
-@Configuration
+//@Configuration
 public class FeignProduitsConfig {
     @Bean
     public Contract feignContract() {

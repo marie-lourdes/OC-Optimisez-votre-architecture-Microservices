@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.clientui.clientui.beans.CommandeBean;
 
-@FeignClient(name = "zuul-server",qualifiers="MicroserviceCommandeProxy")
+@FeignClient(/*contextId="feignCommande",*/name = "zuul-server")
 @RibbonClient(name = "microservice-commandes")
 public interface MicroserviceCommandeProxy {
 
