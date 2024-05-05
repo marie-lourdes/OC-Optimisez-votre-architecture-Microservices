@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.clientui.clientui.beans.PaiementBean;
 
 //@FeignClient(/*contextId="feignPaiement",*/name = "zuul-server")
-@FeignClient(name ="api-gateway")
+@FeignClient(name ="api-gateway", url="localhost:9004")
 @RibbonClient(name = "microservice-paiement")
 public interface MicroservicePaiementProxy {
 
-	@PostMapping(value = "/microservice-paiement/paiement")
+	@PostMapping(value = "/MICROSERVICE-PAIEMENT/paiement")
 	ResponseEntity<PaiementBean> payerUneCommande(@RequestBody PaiementBean paiement);
 
 }

@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.clientui.clientui.beans.CommandeBean;
 
 //@FeignClient(/*contextId="feignCommande",*/name = "zuul-server")
-@FeignClient(name ="api-gateway")
+@FeignClient(name ="api-gateway", url="localhost:9004")
 @RibbonClient(name = "microservice-commandes")
 public interface MicroserviceCommandeProxy {
 
-	@PostMapping(value = "/microservice-commandes/commandes")
+	@PostMapping(value = "/MICROSERVICE-COMMANDES/commandes")
     CommandeBean ajouterCommande(@RequestBody CommandeBean commande);
     
-	@GetMapping(value = "/microservice-commandes/commandes")
+	@GetMapping(value = "/MICROSERVICE-COMMANDES/commandes")
     String recupererHomePage();
 }
