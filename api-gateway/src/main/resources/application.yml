@@ -5,5 +5,5 @@ spring:
         - id: r1
           uri: http://localhost:9001/
           predicates:
-            - Path: /Produits
+            - Path= /Produits/**
 

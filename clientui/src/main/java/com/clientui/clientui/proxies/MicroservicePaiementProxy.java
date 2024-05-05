@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.clientui.clientui.beans.PaiementBean;
 
-@FeignClient(/*contextId="feignPaiement",*/name = "zuul-server")
+//@FeignClient(/*contextId="feignPaiement",*/name = "zuul-server")
+@FeignClient(name ="api-gateway")
 @RibbonClient(name = "microservice-paiement")
 public interface MicroservicePaiementProxy {
 

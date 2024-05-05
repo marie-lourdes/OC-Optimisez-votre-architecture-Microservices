@@ -21,7 +21,8 @@ et chargera les Url des microservices*/
 //@FeignClient(name = "microservice-produits"/*, url = "localhost:9001"*/)
 
 
-@FeignClient(/*contextId="feignProduits",*/name = "zuul-server"/*, configuration=FeignProduitsConfig.class*/)
+//@FeignClient(/*contextId="feignProduits",*/name = "zuul-server"/*, configuration=FeignProduitsConfig.class*/)
+@FeignClient(name ="api-gateway")
 @RibbonClient(name = "microservice-produits")
 public interface MicroserviceProduitsProxy {
    @GetMapping( value = "/microservice-produits/Produits")
