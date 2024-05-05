@@ -2,9 +2,9 @@ spring:
   cloud:
     gateway:
       routes:
-        -id:r1
-          uri:http://localhost:9001/
+        - id: r1
+          uri: http://localhost:9001/
           predicates:
-            -Path:/Produits
+            - Path: /Produits
   application:
-    name:gateway-service
+    name: gateway-service
